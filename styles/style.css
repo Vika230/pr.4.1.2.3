@@ -1,11 +1,31 @@
 html {
   font-size: 10px;
   font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(to right, #ffe4ec, #fcd5ce);
 }
 
+button{
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #d63384;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #b0256b;
+}
 
 h1 {
   font-size: 60px;
+  text-align: center;
+  color: #fc0;
+}
+
+p{
   text-align: center;
 }
 
@@ -15,6 +35,10 @@ p, li {
   letter-spacing: 1px;
 }
 
+ul{
+    text-align: left;
+  display: inline-block;
+}
 
 html {
   background-color: #00539F;
@@ -22,20 +46,26 @@ html {
 
 body {
   width: 600px;
-  margin: 0 auto;
-  background-color: #FF9500;
-  padding: 0 20px 20px 20px;
-  border: 5px solid black;
+  margin: 40px auto;
+  background-color: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
 h1 {
-  margin: 0;
-  padding: 20px 0;
-  color: #00539F;
-  text-shadow: 3px 3px 1px black;
+  color: #d63384;
+  text-align: center;
 }
 
 img {
   display: block;
-  margin: 0 auto;
+  margin: 30px auto;
+  width: 350px;
+  border-radius: 10px;
+}
+
+img:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
 }

@@ -1,36 +1,44 @@
-let myImage = document.querySelector('img');
+document.addEventListener("DOMContentLoaded", function() {
 
-myImage.onclick = function() {
-  let mySrc = myImage.getAttribute('src');
+  let myImage = document.querySelector('img');
+  let myButton = document.querySelector('button');
+  let myHeading = document.querySelector('h1');
 
-  if(mySrc.includes('firefox-icon.png')) {
-    myImage.setAttribute('src', 'images/firefox2.png');
-  } else {
-    myImage.setAttribute('src', 'images/firefox-icon.png');
+  // IMAGE CLICK
+  myImage.onclick = function() {
+    let mySrc = myImage.src;
+
+    if(mySrc.includes('cosmetics1.jpg')) {
+      myImage.src = 'images/cosmetics2.jpg';
+    } else {
+      myImage.src = 'images/cosmetics1.jpg';
+    }
   }
-}
 
-let myButton = document.querySelector('button');
-let myHeading = document.querySelector('h1');
+  // USER NAME
+  function setUserName() {
+    let myName = prompt('Enter your name:');
 
-function setUserName() {
-  let myName = prompt('Введи своє ім’я:');
-  
-  if(!myName) {
+    if(!myName) {
+      setUserName();
+    } else {
+      localStorage.setItem('name', myName);
+      myHeading.textContent = 'Welcome to Beauty Shop, ' + myName.charAt(0).toUpperCase() + myName.slice(1);
+    }
+  }
+
+  // INIT
+  let storedName = localStorage.getItem('name');
+
+  if(!storedName) {
     setUserName();
   } else {
-    localStorage.setItem('name', myName);
-    myHeading.textContent = 'Mozilla is cool, ' + myName;
+    myHeading.textContent = 'Welcome to Beauty Shop, ' + storedName.charAt(0).toUpperCase() + storedName.slice(1);
   }
-}
 
-if(!localStorage.getItem('name')) {
-  setUserName();
-} else {
-  let storedName = localStorage.getItem('name');
-  myHeading.textContent = 'Mozilla is cool, ' + storedName;
-}
+  // BUTTON
+  myButton.onclick = function() {
+    setUserName();
+  }
 
-myButton.onclick = function() {
-  setUserName();
-}
+});
